@@ -11,12 +11,20 @@ public:
     void setType (TileType type);
     bool isWalkable () const;
     bool blocksVision () const;
+    
+    
+    // Fog management    
+    void addFog(int amount);
+    void clearFog();
+    void decrementFog();
 
-    bool setPowerUp (bool present)
+    void setPowerUp (bool present) {powerUpPresent = present;} 
+    char toChar () const;
 
 private:
-    TileType type;
-    bool powerUpPresent;
+    TileType    type;
+    bool        powerUpPresent;     // if a tile has powerup aka is tiletype == powerup
+    int         fogLevel;           // decrements each tick
 };
 
 

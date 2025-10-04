@@ -8,9 +8,9 @@
 class Tank {
 public:
 
-    Tank (const std::string& id, const Position& spawnPosition, Direction facing, int health, int maxHP, int actionPoints, bool isAlive, bool hasDodge);
+    Tank (const int& id, const Position& spawnPosition, Direction facing, int health, int maxHP, int actionPoints, bool isAlive, bool hasDodge);
 
-    const std::string& getId() const { return id; }
+    const int& getId() const { return id; }
     const Position& getPosition() const { return currentPosition; }
     Direction getFacing() const { return facing; }
     int getHealth() const { return health; }
@@ -61,7 +61,7 @@ public:
 
 
 private:
-    std::string id;
+    int         id;
     Position    currentPosition;
     Position    spawnPosition;
     Direction   facing;

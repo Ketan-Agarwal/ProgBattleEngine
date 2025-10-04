@@ -1,7 +1,7 @@
 #ifndef CONSTANTS_H
 #define CONSTANTS_H
 
-
+// TODO: add grid height and width
 const int GRID_HEIGHT;
 const int GRID_WIDTH;
 const int INITIAL_HP = 300;

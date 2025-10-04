@@ -3,7 +3,7 @@
 
 
 
-Tank::Tank (const std::string& id, const Position& spawnPosition, Direction facing, int health, int maxHP, int actionPoints, bool isAlive, bool hasDodge)
+Tank::Tank (const int& id, const Position& spawnPosition, Direction facing, int health, int maxHP, int actionPoints, bool isAlive, bool hasDodge)
     : id(id), spawnPosition(spawnPosition), facing(facing), health(health), maxHP(maxHP), actionPoints(actionPoints), isAlive(isAlive), hasDodge(hasDodge) {
         bulletCooldowns[BulletRange::SHORT] = 0;
         bulletCooldowns[BulletRange::MEDIUM] = 0;
@@ -59,7 +59,7 @@ bool Tank::canUseStealth (int targetID, int k) const {
     // TODO: validate target ID
 
     // cannot stealth from yourself
-    if (targetID == std::stoi(id)) return false;
+    if (targetID == id) return false;
 
     if (k <= 0) return false;
 
