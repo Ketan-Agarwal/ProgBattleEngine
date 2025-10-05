@@ -13,7 +13,6 @@ Tank::Tank (const int& id, const Position& spawnPosition, Direction facing, int 
 
 bool Tank::canMove (Direction dir) const {
     // move is free i.e. no action points required
-
     if (!isAlive) return false;
     return true;
 

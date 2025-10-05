@@ -21,7 +21,7 @@ public:
     int getWinnerId () const;
 
 
-    const Tank* getTank (const int& id) const;
+    Tank* getTank (const int& id);
 
     const Grid& getGrid () const { return *grid; }
 
@@ -38,6 +38,7 @@ public:
     void addBullet(Bullet* bullet);
     const std::vector <Bullet*>& getBullets() const { return bullets;}
     void removeTank(int TankId);
+    bool isTankAt (Position& pos) const ;
 
 
 private:

@@ -92,10 +92,7 @@ void Grid::addFog(const Position& center, int side, int amount) {
 
     for (int dy = -radius; dy <= radius; dy++) {
         for (int dx = -radius; dx <= radius; dx++) {
-            Position FogPos;
-            FogPos.x = center.x + dx;
-            FogPos.y = center.y + dy;
-
+            Position FogPos(center.x + dx, center.y + dy);
             if (isValid(FogPos)) {
                 Tile* tile = getTile(FogPos);
                 

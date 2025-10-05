@@ -51,5 +51,38 @@ bool GameState::isGameOver() const {
 
 int GameState::getWinnerId() const {
     if (tanks.size() > 1) return -1; // Draw
-    
+    for (const Tank& tank : tanks) {
+        if (tank.getIsAlive()) {
+            return tank.getId();
+        }
+    }
 }
+
+bool GameState::isTankAt(Position& pos) const {
+    for (const Tank& tank : tanks) {
+        if (tank.getIsAlive() && tank.getPosition() == pos) return true;
+    }
+    return false;
+}
+
+Tank* GameState::getTank (const int& id) {
+    for (Tank& tank: tanks) {
+        if (tank.getId() == id) {
+            return &tank;
+        }
+    }
+    return nullptr;
+}
+
+void GameState::updateTankPosition(const int& tankId, const Position& oldPos, const Position& newPos) {
+    // TODO: log print
+}
+
+int GameState::getAliveTankCount() const {
+    int count = 0;
+    for (const Tank& tank: tanks) {
+        if (tank.getIsAlive()) count++;
+    }
+    return count;
+}
+
