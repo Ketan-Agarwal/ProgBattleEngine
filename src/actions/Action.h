@@ -1,8 +1,8 @@
 #ifndef ACTION_H
 #define ACTION_H
 
+#include "../utils/enums.h"
 #include <string>
-#include "enums.h"
 
 class GameState;
 class Tank;
@@ -10,27 +10,22 @@ class Tank;
 class Action {
 
 protected:
-    ActionType type;
-    int tankId;
+  ActionType type;
+  int tankId;
 
 public:
-    Action (ActionType type, const int& tankId)
-        : type(type), tankId(tankId) {}
-    
-    virtual ~Action() = default;
+  Action(ActionType type, const int &tankId) : type(type), tankId(tankId) {}
 
-    ActionType getType() const { return type; }
-    const int& getTankId () const { return tankId; }
-    
-    // TODO: add proper validation and execution
+  virtual ~Action() = default;
 
-    virtual bool validate (const GameState& state, const Tank& tank) const = 0;
+  ActionType getType() const { return type; }
+  const int &getTankId() const { return tankId; }
 
-    virtual bool execute (GameState& state) = 0;
+  // TODO: add proper validation and execution
 
+  virtual bool validate(const GameState &state, const Tank &tank) const = 0;
 
+  virtual bool execute(GameState &state) = 0;
 };
-
-
 
 #endif
